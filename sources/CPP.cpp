@@ -16,8 +16,10 @@
 bool working;
 nlohmann::json document;
 
-void OnExitEvent() {
+void OnExitEvent(int cod) {
+    if (cod) {
     working = false;
+    }
 }
 std::string FormatJSON(nlohmann::json doc) {
     std::string out = "[\n";
