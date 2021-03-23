@@ -75,7 +75,7 @@ mutex->unlock();
 
 int main(int argc, char* argv[])
 {
-    signal(SIGINT, reinterpret_cast<__sighandler_t>(OnExitEvent)));
+    signal(SIGINT, reinterpret_cast<__sighandler_t>(OnExitEvent));
     working = true;
     std::chrono::time_point start = std::chrono::high_resolution_clock::now();
     std::shared_ptr<std::mutex> mutex = std::make_shared<std::mutex>();
