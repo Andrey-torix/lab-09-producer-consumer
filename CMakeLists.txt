@@ -31,8 +31,8 @@ add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 #hunter_add_package(GTest)
 #find_package(GTest CONFIG REQUIRED)
 
-hunter_add_package(Boost COMPONENTS filesystem log system thread date_time )
-find_package(Boost 1.72.0 CONFIG REQUIRED filesystem log log_setup system thread date_time)
+hunter_add_package(Boost COMPONENTS thread system filesystem log)
+find_package(Boost 1.72.0 CONFIG REQUIRED system thread filesystem log log_setup)
 
 hunter_add_package(nlohmann_json)
 find_package(nlohmann_json 3.1.4 CONFIG REQUIRED)
