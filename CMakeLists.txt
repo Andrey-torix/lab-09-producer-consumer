@@ -44,10 +44,9 @@ add_executable(${PROJECT_NAME}
  ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
 )
 
-#target_include_directories(${PROJECT_NAME} PUBLIC
-  #"$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-  #"$<INSTALL_INTERFACE:include>"
-#)
+target_include_directories(CPP
+  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
 
 #target_link_libraries(demo ${PROJECT_NAME})
 
