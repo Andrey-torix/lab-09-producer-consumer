@@ -44,7 +44,7 @@ find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup  date_time filesy
 
 
 hunter_add_package(nlohmann_json)
-find_package(nlohmann_json 3.1.4 CONFIG REQUIRED)
+find_package(nlohmann_json 3.8.0 CONFIG REQUIRED)
 
 #add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
