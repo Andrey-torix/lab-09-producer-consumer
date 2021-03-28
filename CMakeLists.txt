@@ -96,7 +96,7 @@ include(CPackConfig.cmake)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
 
-install(EXPORT "${PROJECT_NAME}-targets"
-  NAMESPACE "${PROJECT_NAME}::"
-  DESTINATION "lib/cmake"
-)
+#install(EXPORT "${PROJECT_NAME}-targets"
+  #NAMESPACE "${PROJECT_NAME}::"
+  #DESTINATION "lib/cmake"
+#)
