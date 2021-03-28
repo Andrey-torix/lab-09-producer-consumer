@@ -26,8 +26,8 @@ string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
-hunter_add_package(GTest)
-find_package(GTest CONFIG REQUIRED)
+#hunter_add_package(GTest)
+#find_package(GTest CONFIG REQUIRED)
 
 hunter_add_package(Boost COMPONENTS log)
 find_package(Boost 1.72.0 CONFIG REQUIRED log)
@@ -49,7 +49,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
   "$<INSTALL_INTERFACE:include>"
 )
 
-target_link_libraries(demo ${PROJECT_NAME})
+#target_link_libraries(demo ${PROJECT_NAME})
 
 target_link_libraries(${PROJECT_NAME} Boost::log)
 
