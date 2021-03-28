@@ -40,9 +40,9 @@ add_library(${PROJECT_NAME} STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
 )
 
-#add_executable(demo
- #${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
-#)
+add_executable(template
+ ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
+)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
   "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
