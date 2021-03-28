@@ -70,7 +70,7 @@ if(BUILD_COVERAGE)
   string(APPEND CMAKE_CXX_FLAGS " --coverage")
   add_coverage(${PROJECT_NAME})
   #add_coverage(tests)
-  coverage_evaluate()
+  #coverage_evaluate()
 endif()
 
 if(BUILD_DOCS)
