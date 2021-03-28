@@ -35,10 +35,10 @@ find_package(Boost 1.72.0 CONFIG REQUIRED log)
 hunter_add_package(nlohmann_json)
 find_package(nlohmann_json 3.1.4 CONFIG REQUIRED)
 
-add_library(${PROJECT_NAME} STATIC
+#add_library(${PROJECT_NAME} STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
-)
+  #${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
+#)
 
 add_executable(CPP
  ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
