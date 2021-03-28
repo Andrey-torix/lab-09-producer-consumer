@@ -21,7 +21,7 @@ HunterGate(
 )
 
 # TODO: rename project and delete this comment
-project(CPP VERSION 0.1.0)
+project(lab6 VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -50,7 +50,7 @@ target_include_directories(CPP
 
 #target_link_libraries(demo ${PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} Boost::log)
+target_link_libraries(CPP Boost::log)
 
 #if(BUILD_TESTS)
   #add_executable(tests
