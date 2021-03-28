@@ -21,7 +21,7 @@ HunterGate(
 )
 
 # TODO: rename project and delete this comment
-project(template VERSION 0.1.0)
+project(lab6 VERSION 0.1.0)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -40,7 +40,7 @@ find_package(nlohmann_json 3.1.4 CONFIG REQUIRED)
   #${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
 #)
 
-add_executable(template
+add_executable(${PROJECT_NAME}
  ${CMAKE_CURRENT_SOURCE_DIR}/sources/CPP.cpp
 )
 
