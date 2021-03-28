@@ -32,21 +32,11 @@ add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 #find_package(GTest CONFIG REQUIRED)
 
 hunter_add_package(Boost COMPONENTS  system filesystem log)
-#find_package(Boost 1.72.0 CONFIG REQUIRED log log_setup  date_time filesystem system)
+find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup  date_time filesystem system)
 
-SET(Boost_USE_STATIC_LIBS ON)  
-SET(Boost_USE_MULTITHREADED ON)  
-FIND_PACKAGE(Boost 1.72.0 COMPONENTS **system thread filesystem date_time log log_setup** REQUIRED)  
-
-IF(Boost_FOUND)  
-    INCLUDE_DIRECTORIES(SYSTEM ${Boost_INCLUDE_DIR})  
-    LINK_DIRECTORIES(${Boost_LIBRARY_DIR})  
-    MESSAGE("Boost information")  
-    MESSAGE("Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")  
-    MESSAGE("Boost_LIBRARY_DIRS: ${Boost_LIBRARY_DIRS}")  
-    MESSAGE("Boost Libraries: ${Boost_LIBRARIES}")  
-    TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${Boost_LIBRARIES})  
-ENDIF()
+#SET(Boost_USE_STATIC_LIBS ON)  
+#SET(Boost_USE_MULTITHREADED ON)  
+#FIND_PACKAGE(Boost 1.72.0 COMPONENTS **system thread filesystem date_time log log_setup** REQUIRED)  
 
 
 
@@ -72,7 +62,7 @@ target_include_directories(CPP
 #target_link_libraries(demo ${PROJECT_NAME})
 
 target_link_libraries(CPP Boost::log)
-
+target_link_libraries(CPP Boost::thread)
 #if(BUILD_TESTS)
   #add_executable(tests
     # TODO: enum your files and delete this comment
