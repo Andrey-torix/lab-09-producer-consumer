@@ -29,7 +29,7 @@ string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 #hunter_add_package(GTest)
 #find_package(GTest CONFIG REQUIRED)
 
-hunter_add_package(Boost COMPONENTS log)
+hunter_add_package(Boost COMPONENTS log thread filesystem date_time)
 find_package(Boost 1.72.0 CONFIG REQUIRED log thread filesystem date_time)
 
 hunter_add_package(nlohmann_json)
