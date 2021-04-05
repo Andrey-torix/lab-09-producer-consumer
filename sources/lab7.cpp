@@ -27,8 +27,7 @@ std::vector<suggestion> items;
 
 class http_connection : public std::enable_shared_from_this<http_connection> {
 public:
-explicit http_connection(tcp::socket socket) : socket_(std::move(socket)) {} 
-
+explicit http_connection(tcp::socket socket) : socket_(std::move(socket)) {}
   // Initiate the asynchronous operations associated with the connection.
   void start() {
     read_request();
