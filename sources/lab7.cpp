@@ -27,7 +27,7 @@ std::vector<suggestion> items;
 
 class http_connection : public std::enable_shared_from_this<http_connection> {
 public:
-  http_connection(tcp::socket socket) : socket_(std::move(socket)) {}
+explicit http_connection(tcp::socket socket) : socket_(std::move(socket)) {} 
 
   // Initiate the asynchronous operations associated with the connection.
   void start() {
@@ -75,7 +75,6 @@ private:
         // std::cout <<request_  << std::endl;
         response_.result(http::status::ok);
         std::string body{boost::asio::buffers_begin(request_.body().data()),
-
                          boost::asio::buffers_end(request_.body().data())};
 
         std::vector<std::string> coll;
@@ -94,7 +93,6 @@ private:
 
         for (int i = 0; i < items.size(); ++i) {
           if (items[i].id == client) {
-
             js["suggestions"][position]["Position: "] =
                 std::to_string(position);
             js["suggestions"][position]["Text"] = items[i].name;
@@ -158,7 +156,6 @@ int main(int argc, char *argv[]) {
   try {
     // Check command line arguments.
     if (argc != 4) {
-
       std::cerr << "Usage: " << argv[0] << " <address> <port>\n";
       std::cerr << "  For IPv4, try:\n";
       std::cerr << "    receiver 0.0.0.0 80\n";
