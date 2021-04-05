@@ -78,8 +78,7 @@ private:
 
         std::vector<std::string> coll;
         boost::algorithm::split_regex(coll, body, boost::regex(":"));
-        nlohmann::json n =
-            nlohmann::json::parse(body); //парсим запрос от клиента
+        nlohmann::json n = nlohmann::json::parse(body);
         std::string client = n["input"];
         // std::cout <<n.dump(4)<<std::endl;
         std::cout << client << std::endl; //<< "input: "
