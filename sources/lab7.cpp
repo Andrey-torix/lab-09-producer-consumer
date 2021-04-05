@@ -86,31 +86,35 @@ private:
         if (request_.target() == "/v1/api/suggest") {
             if (request_.method() == http::verb::post)
             {
-                std::cout <<request_  << std::endl;
+                //std::cout <<request_  << std::endl;
                 response_.result(http::status::ok);
                 std::string body{ boost::asio::buffers_begin(request_.body().data()),
 
                  boost::asio::buffers_end(request_.body().data()) };
+                
                 std::vector<std::string> coll;
                 boost::algorithm::split_regex(coll, body, boost::regex(":"));
+                nlohmann::json n = nlohmann::json::parse(body); //парсим запрос от клиента
+                std::string client = n["input"];
+                //std::cout <<n.dump(4)<<std::endl;
+                std::cout << client << std::endl; //<< "input: "
                 nlohmann::json js;
                 js["suggestions"] = nlohmann::json::array();
-                if (coll[0] == "input") {
-                    std::cout << "input: " << coll[1] << std::endl;
-                    std::string otvet = "";
+                //if (coll[0] == "\"input\"") {
+                    
+                    //std::string otvet = "";
                     int position = 0;
 
                     for (int i = 0; i < items.size(); ++i) {
-                        if (items[i].id == coll[1]) {
+                        if (items[i].id == client) {
 
                             js["suggestions"][position]["Position: "] = std::to_string(position);
                             js["suggestions"][position]["Text"] = items[i].name;
-
                             ++position;
                         }
-
+                        //std::cout << "\"" + items[i].id + "\"" << std::endl;
                     }
-                }
+                //}
 
 
                 beast::ostream(response_.body()) //ответ
