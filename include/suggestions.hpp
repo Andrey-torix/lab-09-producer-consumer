@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include <boost/algorithm/string.hpp>
 struct suggestion {
   std::string id;
