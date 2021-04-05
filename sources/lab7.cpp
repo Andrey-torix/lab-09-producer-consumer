@@ -90,7 +90,7 @@ private:
         // std::string otvet = "";
         int position = 0;
 
-        for (unsigned long i = 0; i < items.size(); ++i) {
+        for (uint64_t i = 0; i < items.size(); ++i) {
           if (items[i].id == client) {
             js["suggestions"][position]["Position: "] =
                 std::to_string(position);
