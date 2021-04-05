@@ -1,4 +1,4 @@
-//#include "single_include\nlohmann\json.hpp"
+// Copyright 2020 Andreytorix
 #include <boost/algorithm/string/regex.hpp>
 #include <boost/regex.hpp>
 #include <boost/beast/core.hpp>
