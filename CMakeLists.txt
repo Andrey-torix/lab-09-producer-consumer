@@ -28,8 +28,8 @@ string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
 add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
-hunter_add_package(Boost COMPONENTS  system filesystem log)
-find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup  date_time filesystem system)
+hunter_add_package(Boost COMPONENTS  system filesystem)
+find_package(Boost 1.72.0 CONFIG REQUIRED thread date_time filesystem system)
 
 #SET(Boost_USE_STATIC_LIBS ON)  
 #SET(Boost_USE_MULTITHREADED ON)  
