@@ -4,9 +4,10 @@
 //#include <boost/regex.hpp>
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
-#define BOOST_NO_CXX11_SCOPED_ENUMS
+/*#define BOOST_NO_CXX11_SCOPED_ENUMS
 #include <boost/filesystem.hpp>
-#undef BOOST_NO_CXX11_SCOPED_ENUMS
+#undef BOOST_NO_CXX11_SCOPED_ENUMS*/
+#include <filesystem>
 #include <boost/beast/version.hpp>
 #include <boost/asio.hpp>
 #include <boost/asio/buffer.hpp>
@@ -166,7 +167,7 @@ int main(int argc, char *argv[]) {
       return EXIT_FAILURE;
     }
 
-    if (boost::filesystem::exists(argv[3])) {
+    if (std::filesystem::exists(argv[3])) {
       // items = getFromJson(argv[3]);
       //запуск потока обновления данных
       std::string dir(argv[3]);
