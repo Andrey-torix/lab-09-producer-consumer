@@ -4,7 +4,9 @@
 //#include <boost/regex.hpp>
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
+#define BOOST_NO_CXX11_SCOPED_ENUMS
 #include <boost/filesystem.hpp>
+#undef BOOST_NO_CXX11_SCOPED_ENUMS
 #include <boost/beast/version.hpp>
 #include <boost/asio.hpp>
 #include <boost/asio/buffer.hpp>
