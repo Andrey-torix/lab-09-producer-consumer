@@ -4,18 +4,18 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "single_include\nlohmann\json.hpp"
+//#include "single_include\nlohmann\json.hpp"
 #include "suggestions.hpp"
-using namespace nlohmann;
+
 
 std::vector<suggestion> getFromJson(std::string path) {
   std::vector<suggestion> v;
   std::ifstream i(path);
-  json j;
+  nlohmann::json j;
   i >> j;
 
-  for (json::iterator it = j.begin(); it != j.end(); ++it) {
-    json sug = it.value();
+  for (nlohmann::json::iterator it = j.begin(); it != j.end(); ++it) {
+    nlohmann::json sug = it.value();
     suggestion temp;
     temp.id = sug["id"];
     temp.name = sug["name"];
