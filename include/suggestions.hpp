@@ -1,6 +1,7 @@
 // Copyright 2020 Andreytorix
 #pragma once
 #include <vector>
+#include <string>
 struct suggestion {
   std::string id;
   std::string name;
