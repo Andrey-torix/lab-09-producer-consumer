@@ -1,6 +1,6 @@
 // Copyright 2020 Andreytorix
 #include "nlohmann/json.hpp"
-#include <boost/algorithm/string/regex.hpp>
+//#include <boost/algorithm/string/regex.hpp>
 //#include <boost/regex.hpp>
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
@@ -77,8 +77,8 @@ private:
         std::string body{boost::asio::buffers_begin(request_.body().data()),
                          boost::asio::buffers_end(request_.body().data())};
 
-        std::vector<std::string> coll;
-        boost::algorithm::split_regex(coll, body, boost::regex(":"));
+        //std::vector<std::string> coll;
+        //boost::algorithm::split_regex(coll, body, boost::regex(":"));
         nlohmann::json n = nlohmann::json::parse(body);
         std::string client = n["input"];
         // std::cout <<n.dump(4)<<std::endl;
