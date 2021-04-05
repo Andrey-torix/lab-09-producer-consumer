@@ -1,3 +1,4 @@
+// Copyright 2020 Andreytorix
 #include <boost/algorithm/string.hpp>
 #include <string>
 #include <vector>
