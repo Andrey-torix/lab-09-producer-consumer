@@ -11,7 +11,7 @@ std::mutex m;
 bool work = true;
 void downloadFunction(int id) {
     while (work) {
-        std::cout<<id<<std::endl;
+        std::cout << id << std::endl;
         std::unique_lock<std::mutex> lk(m);
         if (hrefGlobalList.size() > 0) {  //если в векторе ссылок есть элементы
                                           //скачиваем страницы
@@ -39,7 +39,7 @@ std::chrono::milliseconds(100));  // задём время простоя
 void parseFunction(int id, int depthParse,
     std::string path) {  //парсим контент страницы
     while (work) {
-        std::cout<<id<<std::endl;
+        std::cout << id << std::endl;
         if (hrefGlobalList.size() == 0 && pages.size() == 0) {
             work = false;
             exit(0);
