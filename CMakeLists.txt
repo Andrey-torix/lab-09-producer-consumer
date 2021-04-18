@@ -36,9 +36,10 @@ hunter_add_package(Boost COMPONENTS regex system filesystem log program_options 
 find_package(Boost 1.72.0 CONFIG REQUIRED regex system filesystem thread log log_setup program_options date_time)
 
 
-#hunter_add_package(gumbo)
+hunter_add_package(gumbo)
+find_package(Gumbo CONFIG REQUIRED)
 
-#find_package(Gumbo CONFIG REQUIRED)
+
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
 )
@@ -52,7 +53,7 @@ target_include_directories(main
 
 target_link_libraries(main Boost::program_options)
 target_link_libraries(main Boost::regex Boost::system Boost::filesystem)
-
+target_link_libraries(main gumbo::gumbo)
 if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/tools/coverage/cmake")
