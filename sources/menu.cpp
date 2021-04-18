@@ -1,5 +1,5 @@
 // Copyright 2020 Andreytorix
-#include "menu.hpp"
+#include "../include/menu.hpp"
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <mutex>
