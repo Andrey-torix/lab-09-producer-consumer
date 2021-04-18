@@ -19,7 +19,7 @@ std::string Network(std::string url) {
         std::string port;
         std::string target;
         boost::regex ex(
-            "(http|https)://([^/ :]+):?([^/ ]*)(/?[^ #?]*)\\x3f?([^ #]*)#?([^ ]*)");
+"(http|https)://([^/ :]+):?([^/ ]*)(/?[^ #?]*)\\x3f?([^ #]*)#?([^ ]*)");
         boost::cmatch what;
         if (regex_match(url.c_str(), what, ex)) {
             protocol = std::string(what[1].first, what[1].second);
@@ -27,8 +27,7 @@ std::string Network(std::string url) {
             port = std::string(what[3].first, what[3].second);
             target = std::string(what[4].first, what[4].second);
             if (port == "80" || port == "443") {
-            }
-            else {
+            } else {
                 port = "80";
             }
         }
@@ -43,7 +42,8 @@ std::string Network(std::string url) {
         boost::beast::http::request<boost::beast::http::string_body> req{
             boost::beast::http::verb::get, target, version };
         req.set(boost::beast::http::field::host, host);
-        req.set(boost::beast::http::field::user_agent, BOOST_BEAST_VERSION_STRING);
+req.set(boost::beast::http::field::user_agent,
+        BOOST_BEAST_VERSION_STRING);
         boost::beast::http::write(stream, req);
         boost::beast::flat_buffer buffer;
         boost::beast::http::response<boost::beast::http::dynamic_body> res;
@@ -51,7 +51,7 @@ std::string Network(std::string url) {
         std::string body{ boost::asio::buffers_begin(res.body().data()),
                          boost::asio::buffers_end(res.body().data()) };
         boost::beast::error_code ec;
-        stream.socket().shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
+stream.socket().shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
         if (ec && ec != boost::beast::errc::not_connected) {
             throw boost::beast::system_error{ ec };
         }
