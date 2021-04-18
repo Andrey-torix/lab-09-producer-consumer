@@ -54,16 +54,13 @@ void search_for_links(GumboNode* node, int depthbody, std::string path,
             if (urll.size() < 5) {
                 locHref.pop_back();
                 urll = locHref + "" + urll;
-            }
-            else {
+            } else {
                 size_t foundl = urll.find_first_of(":");
                 std::string protocoll = urll.substr(0, foundl);  //протокол
                 if (protocoll == "http" || protocoll == "https") {
-                }
-                else {
+                } else {
                     if (urll.find(host) != std::string::npos) {
-                    }
-                    else {
+                    } else {
                         locHref.pop_back();
                         urll = locHref + "" + urll;
                     }
@@ -96,8 +93,7 @@ void initialize_search_for_links(GumboNode* node, std::string path,
             std::filesystem::path(href->value).extension() == ".png") {
             std::cout << href->value << " 1" << std::endl;
             saveHrefToFile(href->value, 1, path);
-        }
-        else {
+        } else {
             //разбираем ссылку - аргумент
             size_t found = url.find_first_of(":");
             std::string protocol = url.substr(0, found - 1);  //протокол
@@ -116,16 +112,13 @@ void initialize_search_for_links(GumboNode* node, std::string path,
             if (urll.size() < 5) {
                 url.pop_back();
                 urll = url + "" + urll;
-            }
-            else {
+            } else {
                 size_t foundl = urll.find_first_of(":");
                 std::string protocoll = urll.substr(0, foundl);  //протокол
                 if (protocoll == "http" || protocoll == "https") {
-                }
-                else {
+                } else {
                     if (urll.find(host) != std::string::npos) {
-                    }
-                    else {
+                    } else {
                         url.pop_back();
                         urll = url + "" + urll;
                     }
