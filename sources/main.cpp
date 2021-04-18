@@ -1,6 +1,6 @@
 // Copyright 2020 Andreytorix
 #include <iostream>
-#include "../include/main.hpp"
+//#include "../include/main.hpp"
 #include <boost/program_options.hpp>
 #include <string>
 class EApplication {
