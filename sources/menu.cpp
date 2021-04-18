@@ -20,14 +20,10 @@ void downloadFunction(int id) {
             hrefGlobalList.pop_back();  //удаляем эту строку из списка
             std::string contents =
                 Network(localHref);  //берём ссылку из списка и качаем страницу
-            if (contents != "ERROR") {
-                pages.push_back(pageT(contents, localDepth,
-localHref));  //полученную страницу вставляем в
-//вектор (очередь на парсинг) вторым
-//аргументом передаём глубину
-parseFunction_cv.notify_all();  //оповещаем все потоки парсеров, что мы
-                                                //скачали новую страницу
-            }
+if (contents != "ERROR") {
+pages.push_back(pageT(contents, localDepth,localHref));
+parseFunction_cv.notify_all();
+}
         } else {
             downloadFunction_cv.wait(
 lk, [] { return hrefGlobalList.size() != 0; });  //иначе простаиваем
