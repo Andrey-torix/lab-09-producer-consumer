@@ -38,8 +38,7 @@ find_package(Boost 1.72.0 CONFIG REQUIRED regex system filesystem thread log log
 
 #hunter_add_package(gumbo)
 
-#find_package(gumbo CONFIG REQUIRED)
-
+#find_package(Gumbo CONFIG REQUIRED)
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
 )
