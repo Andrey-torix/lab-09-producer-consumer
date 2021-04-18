@@ -1,6 +1,6 @@
 // Copyright 2020 Andreytorix
 #include <iostream>
-#include "main.hpp"
+#include "../include/main.hpp"
 //#include <boost/program_options.hpp>
 int main(int argc, const char* argv[])
 {
