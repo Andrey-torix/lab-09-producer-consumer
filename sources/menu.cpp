@@ -1,5 +1,6 @@
 // Copyright 2020 Andreytorix
-#include "lab9.hpp"
+#include "main.hpp"
+#include <boost/program_options.hpp>
 #include <iostream>
 #include <mutex>
 #include "Downloader.hpp"
