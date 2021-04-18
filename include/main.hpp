@@ -4,8 +4,8 @@
 #include <string>
 class EApplication {
 public:
-  explicit EApplication(int argc, const char **argv);
-  int exec();
+  explicit EApplication::EApplication(int argc, const char **argv);
+  int EApplication::exec();
 
 private:
   boost::program_options::options_description m_desk{"доступные опции"};
