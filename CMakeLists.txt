@@ -31,20 +31,13 @@ add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 hunter_add_package(Boost COMPONENTS  system filesystem log program_options )
 find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup program_options date_time filesystem system regex)
 
- 
-
-add_library(menu STATIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/menu.cpp
-)
 add_executable(main
 ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
 )
 target_include_directories(main
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
-target_include_directories(menu
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+
 
 
 
