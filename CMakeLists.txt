@@ -35,19 +35,22 @@ find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup program_options d
 #SET(Boost_USE_MULTITHREADED ON)  
 #FIND_PACKAGE(Boost 1.72.0 COMPONENTS **system thread filesystem  date_time regex log log_setup** REQUIRED)  
 
+#add_library(calclib STATIC src/calclib.cpp include/calc/lib.hpp)
+#target_include_directories(calclib PUBLIC include)
+#target_compile_features(calclib PUBLIC cxx_std_11)
 
-add_library(menu STATIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/menu.cpp
-)
+#add_executable(calc apps/calc.cpp)
+#target_link_libraries(calc PUBLIC calclib)
+
+add_library(menulib STATIC ${CMAKE_CURRENT_SOURCE_DIR}/sources/menu.cpp ${CMAKE_CURRENT_SOURCE_DIR}/include/menu.hpp)
+target_include_directories(menulib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 add_executable(main
- ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
-)
-target_include_directories(main
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-target_include_directories(menu
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+ ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp )
+ target_link_libraries(main PUBLIC menulib)
+ 
+ 
+#target_include_directories(main PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
+#target_include_directories(menu PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
 
 
 target_link_libraries(main Boost::program_options)
