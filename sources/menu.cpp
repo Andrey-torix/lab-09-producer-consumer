@@ -2,8 +2,8 @@
 #include "lab9.hpp"
 #include <iostream>
 #include <mutex>
-#include "Network.hpp"
-#include "hrefSearch.hpp"
+#include "Downloader.hpp"
+#include "Parser.hpp"
 #include "pageContainer.hpp"
 std::mutex m;
 bool work = true;
