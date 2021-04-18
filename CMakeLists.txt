@@ -42,10 +42,6 @@ add_library(menu STATIC
 add_executable(main
  ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
 )
-
-target_include_directories(lab9
-  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
 target_include_directories(main
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
@@ -54,7 +50,8 @@ target_include_directories(menu
 )
 
 
-target_link_libraries(lab9 Boost::thread)
+#target_link_libraries(lab9 Boost::thread)
+
 
 if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
