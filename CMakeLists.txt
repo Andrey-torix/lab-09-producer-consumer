@@ -39,11 +39,14 @@ find_package(Boost 1.72.0 CONFIG REQUIRED thread log log_setup program_options d
 add_library(menu STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/menu.cpp
 )
-add_executable(lab9
+add_executable(main
  ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
 )
 
 target_include_directories(lab9
+  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+target_include_directories(main
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_include_directories(menu
