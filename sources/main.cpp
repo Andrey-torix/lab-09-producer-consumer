@@ -1,6 +1,6 @@
 // Copyright 2020 Andreytorix
 #include <iostream>
-//#include "../include/main.hpp"
+#include "../include/menu.hpp"
 int main(int argc, const char* argv[])
 {
     //setlocale(LC_ALL, "Russian");
