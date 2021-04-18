@@ -4,8 +4,8 @@
 #include <string>
 class EApplication {
 public:
-  explicit EApplication::EApplication(int argc, const char **argv);
-  int EApplication::exec();
+  explicit EApplication(int argc, const char **argv);
+  int exec();
 
 private:
   boost::program_options::options_description m_desk{"доступные опции"};
@@ -23,3 +23,5 @@ private:
   int parser_threads;  //количество потоков парсера
   std::string path;    //путь к файлу с результатом
 };
+EApplication::EApplication(int argc, const char **argv);
+int EApplication::exec();
