@@ -7,5 +7,5 @@ int main(int argc, const char* argv[])
     obj.EApplication(argc, argv);
     //setlocale(LC_ALL, "Russian");
     //EApplication::EApplication app(argc, argv);
-    return app.exec();
+    return obj.exec();
 }
