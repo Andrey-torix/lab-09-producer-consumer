@@ -10,7 +10,7 @@
 #include <boost/asio/buffers_iterator.hpp>
 #include <boost/regex.hpp>
 #include <string>
-//#include <gumbo.h>
+#include <gumbo.h>
 
 std::string Network(std::string url) {
     try {
