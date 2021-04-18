@@ -4,7 +4,7 @@
 #include <string>
 class EApplication {
 public:
-  explicit EApplication(int argc, const char **argv);
+  void menu(int argc, const char **argv);
   int exec();
 
 private:
