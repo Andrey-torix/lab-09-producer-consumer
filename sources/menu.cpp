@@ -21,7 +21,7 @@ void downloadFunction(int id) {
             std::string contents =
                 Network(localHref);  //берём ссылку из списка и качаем страницу
 if (contents != "ERROR") {
-pages.push_back(pageT(contents, localDepth,localHref));
+pages.push_back(pageT(contents, localDepth, localHref));
 parseFunction_cv.notify_all();
 }
         } else {
@@ -30,7 +30,7 @@ lk, [] { return hrefGlobalList.size() != 0; });  //иначе простаива
         }
         lk.unlock();
         std::this_thread::sleep_for(
-std::chrono::milliseconds(100));  // задём время простоя 
+std::chrono::milliseconds(100));  // задём время простоя
     }
 }
 void parseFunction(int id, int depthParse,
