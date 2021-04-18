@@ -3,7 +3,6 @@
 //#include "../include/menu.hpp"
 #include <boost/program_options.hpp>
 #include <string>
-#include <iostream>
 #include <mutex>
 #include "../include/Downloader.hpp"
 #include "../include/Parser.hpp"
