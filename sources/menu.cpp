@@ -117,7 +117,8 @@ int EApplication::exec() {
                     downloaders.push_back(std::thread(downloadFunction, i));
                 }
                 for (int i = 0; i < parser_threads; i++) {
-                    parsers.push_back(std::thread(parseFunction, i, depth, path));
+                    parsers.push_back(std::thread(parseFunction,
+                                                  i, depth, path));
                 }
                 for (int i = 0; i < network_threads; i++) {
                     downloaders[i].join();
@@ -127,8 +128,7 @@ int EApplication::exec() {
                 }
             }
         }
-    }
-    else {
+    } else {
         std::cout << "Пожалуйста, используйте --help опцию для вывода справки"
             << std::endl;
         return 1;
