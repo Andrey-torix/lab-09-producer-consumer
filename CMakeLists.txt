@@ -50,7 +50,7 @@ target_include_directories(menu
 )
 
 
-target_link_libraries(lab9 Boost::program_options)
+target_link_libraries(main Boost::program_options)
 
 
 if(BUILD_COVERAGE)
