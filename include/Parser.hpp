@@ -35,8 +35,7 @@ void search_for_links(GumboNode* node, int depthbody, std::string path,
             std::filesystem::path(href->value).extension() == ".png") {
             std::cout << href->value << " " << depthbody << std::endl;
             saveHrefToFile(href->value, depthbody + 1, path);
-        }
-        else {
+        } else {
             size_t found = locHref.find_first_of(":");
             std::string protocol = locHref.substr(0, found - 1);  //протокол
             if (protocol == "") {
@@ -67,16 +66,14 @@ void search_for_links(GumboNode* node, int depthbody, std::string path,
                 }
             }
             hrefGlobalList.push_back(hrefItem(urll, depthbody));
-            downloadFunction_cv
-                .notify_all();  //если нашли ссылку оповещаем все потоки скачивания
+            downloadFunction_cv.notify_all();
+            //если нашли ссылку оповещаем все потоки скачивания
         }
     }
     GumboVector* children = &node->v.element.children;
     for (unsigned int i = 0; i < children->length; ++i) {
         search_for_links(static_cast<GumboNode*>(children->data[i]), depthbody,
             path, locHref);
-        if (i == children->length) {
-        }
     }
 }
 
