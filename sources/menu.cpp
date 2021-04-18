@@ -25,17 +25,16 @@ void downloadFunction(int id) {
                     localHref));  //полученную страницу вставляем в
                                   //вектор (очередь на парсинг) вторым
                                   //аргументом передаём глубину
-                parseFunction_cv.notify_all();  //оповещаем все потоки парсеров, что мы
+parseFunction_cv.notify_all();  //оповещаем все потоки парсеров, что мы
                                                 //скачали новую страницу
             }
-        }
-        else {
+        } else {
             downloadFunction_cv.wait(
-                lk, [] { return hrefGlobalList.size() != 0; });  //иначе простаиваем
+lk, [] { return hrefGlobalList.size() != 0; });  //иначе простаиваем
         }
         lk.unlock();
         std::this_thread::sleep_for(
-            std::chrono::milliseconds(100));  // задём время простоя 
+std::chrono::milliseconds(100));  // задём время простоя 
     }
 }
 void parseFunction(int id, int depthParse,
@@ -56,22 +55,19 @@ void parseFunction(int id, int depthParse,
                 search_for_links(output->root, (depthBody + 1), path,
                     locHref);  // список ссылок
                 gumbo_destroy_output(&kGumboDefaultOptions, output);
-            }
-            else {
+            } else {
                 if (hrefGlobalList.size() == 0) {
                     work = false;
                     std::cout << "обход завершён" << std::endl;
-                }
-                else {
+                } else {
                 }
             }
-        }
-        else {
+        } else {
             parseFunction_cv.wait(lk, [] { return pages.size() > 0; });
         }
         lk.unlock();
         std::this_thread::sleep_for(
-            std::chrono::milliseconds(120));  //задём время простоя (миллисекунд)
+std::chrono::milliseconds(120));  //задём время простоя (миллисекунд)
     }
 }
 
@@ -79,15 +75,15 @@ EApplication::EApplication(int argc, const char** argv) {
     m_desk.add_options()("help", "вызов справки")(
         "url", boost::program_options::value<std::string>(&url)->composing(),
         "url адрес страницы для парсинга")(
-            "output", boost::program_options::value<std::string>(&path)->composing(),
+"output", boost::program_options::value<std::string>(&path)->composing(),
             "путь к файлу с результатом")(
-                "depth", boost::program_options::value<int>(&depth)->composing(),
+"depth", boost::program_options::value<int>(&depth)->composing(),
                 "глубина поиска")(
                     "network_threads",
-                    boost::program_options::value<int>(&network_threads)->composing(),
+boost::program_options::value<int>(&network_threads)->composing(),
                     "количество поток скачивания")(
                         "parser_threads",
-                        boost::program_options::value<int>(&parser_threads)->composing(),
+boost::program_options::value<int>(&parser_threads)->composing(),
                         "количество потоков парсера");
     boost::program_options::store(
         boost::program_options::parse_command_line(argc, argv, m_desk), m_vm);
