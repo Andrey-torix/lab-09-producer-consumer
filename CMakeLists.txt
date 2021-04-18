@@ -37,7 +37,7 @@ find_package(Boost 1.72.0 CONFIG REQUIRED regex system filesystem thread log log
 
 
 hunter_add_package(gumbo)
-find_package(Gumbo CONFIG REQUIRED)
+find_package(gumbo CONFIG REQUIRED)
 
 
 add_executable(main
