@@ -1,5 +1,5 @@
 // Copyright 2020 Andreytorix
-#include "main.hpp"
+#include "menu.hpp"
 #include <boost/program_options.hpp>
 #include <iostream>
 #include <mutex>
@@ -68,7 +68,7 @@ std::chrono::milliseconds(120));  //задём время простоя (мил
     }
 }
 
-EApplication::EApplication(int argc, const char** argv) {
+void EApplication::menu(int argc, const char** argv) {
     m_desk.add_options()("help", "вызов справки")(
         "url", boost::program_options::value<std::string>(&url)->composing(),
         "url адрес страницы для парсинга")(
