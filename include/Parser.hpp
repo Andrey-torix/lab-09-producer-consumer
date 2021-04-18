@@ -4,6 +4,7 @@
 #include <gumbo.h>
 #include <iostream>
 #include <vector>
+#include <string>
 #include "pageContainer.hpp"
 #include <condition_variable>
 #include <fstream>
