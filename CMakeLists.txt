@@ -52,7 +52,7 @@ target_include_directories(main
 
 
 target_link_libraries(main Boost::program_options)
-
+target_link_libraries(main boost::regex)
 
 if(BUILD_COVERAGE)
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
